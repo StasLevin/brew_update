@@ -7,10 +7,6 @@ MD="$M $D"
 
 LOGFILE="$(pwd)/brew_update.log"
 
-if [ -f "$LOGFILE" ]; then
-  grep -v "update already logged" "$LOGFILE" > "$LOGFILE.tmp" && mv "$LOGFILE.tmp" "$LOGFILE"
-fi
-
 if grep -q "$MD" "$LOGFILE"; then
   echo "Brew update already logged for today: $MD" >> "$LOGFILE"
   exit 0
@@ -24,7 +20,6 @@ fi
 DATE=$(date)
 
 echo "Brew update completed at $DATE"  >> "$LOGFILE"
-
 
 while [ "$(wc -l < "$LOGFILE")" -gt 7 ]; do
   # Remove the first line and overwrite the file
