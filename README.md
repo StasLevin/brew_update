@@ -7,5 +7,9 @@ Simple macOS bash script that handles brew common operations in one place
 # Getting Started
 1. Clone the script & make it executable
 2. Run it
-# Script Result 
+# Run Result 
 Available in brew_update.log
+# Add the script to *crontab*
+*crontab entree Example*: 
+`0 8 * * * /bin/bash ~/brew_update/.brew_update.sh`
+
